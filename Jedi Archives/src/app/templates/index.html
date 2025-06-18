@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedi Archives</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('{{ url_for('static', filename='jedi.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            opacity: 0.9;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .article {
+            margin-bottom: 40px;
+            color: #f8f9fa;
+        }
+        .article:hover h2 {
+            text-shadow: 0 0 10px #ffc107;
+        }
+        h2, .lead {
+            color: #ffc107;
+        }
+        p {
+            color: #dee2e6;
+        }
+        .header h1 {
+            color: #4bd5ee; /* Light blue for the title to stand out */
+            text-shadow: 2px 2px 4px #000; /* Adding text shadow for better visibility */
+        }
+        .lead {
+            color: #dee2e6; /* Light grey for the text for readability */
+        }
+        .lead .secret-path {
+            color: #ff5555; 
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="header text-center">
+            <h1 class="mb-4">Jedi Archives</h1>
+            <p class="lead">Only the "Jedi" can access the <span class="secret-path">"/secret"</span> page.</p>
+        </div>
+
+        <article class="article">
+            <h2>The Legacy of the Jedi</h2>
+            <p>For over a thousand generations, the Jedi Knights were the guardians of peace and justice in the Old Republic. Before the dark times... before the Empire...</p>
+        </article>
+
+        <article class="article">
+            <h2>The Force: An Energy Field Created by All Living Things</h2>
+            <p>The Force is what gives a Jedi his power. It's an energy field created by all living things. It surrounds us, penetrates us, and binds the galaxy together.</p>
+        </article>
+        <article class="article">
+            <h2>The Sith Code</h2>
+            <p>Known for their ruthlessness, the Sith abide by their code, which states: "Peace is a lie, there is only
+                passion. Through passion, I gain strength. Through strength, I gain power. Through power, I gain
+                victory. Through victory, my chains are broken."</p>
+        </article>
+
+        <article class="article">
+            <h2>The Jedi Order</h2>
+            <p>The Jedi Order was all about maintaining peace and order in the galaxy. They were diplomats and warriors,
+                serving as guardians of peace and justice in the Galactic Republic for thousands of years.</p>
+        </article>
+
+        <article class="article">
+            <h2>Lightsabers: The Weapon of the Jedi</h2>
+            <p>A symbol of a Jedi's connection to the Force, a lightsaber is both a weapon and a tool. The construction
+                of a lightsaber is a rite of passage, with the color of the kyber crystal reflecting its wielder's
+                personality and position.</p>
+        </article>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

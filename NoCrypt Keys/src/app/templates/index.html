@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - NoCrypt Keys</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/nocrypt.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.85); /* Light background for readability */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+        h2 {
+            color: #5a2d0c; /* Dark brown color for the heading */
+        }
+        .btn-primary {
+            background-color: #d88c47; /* A shade that matches the warm hues in the image */
+            border: none;
+        }
+        .form-control {
+            background: rgba(0, 0, 0, 0.1);
+            border: 2px solid #d88c47;
+            color: #5a2d0c;
+        }
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: #b66f2d;
+            box-shadow: none;
+        }
+        .form-label {
+            color: #5a2d0c;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .btn-link {
+            color: #d88c47; /* Warm hue for the forgotten password link */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="text-center">Enter NoCrypt</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="form-group">
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Unlock</button>
+        </form>
+        <div class="text-center mt-3">
+            <button class="btn btn-link" onclick="alert('This functionality is currently under maintenance.');">Forgot your credentials?</button>
+        </div>
+    </div>
+</body>
+</html>

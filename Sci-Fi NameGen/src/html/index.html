@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sci-Fi Character Name Generator</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body {
+			background-image: url("sci-fi-background.jpg");
+			background-color: #000000;
+			background-size: cover;
+			font-family: 'Orbitron', sans-serif;
+		}
+		.container {
+			max-width: 600px;
+			background: rgba(0, 0, 0, 0.8);
+			padding: 40px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+			margin-top: 100px;
+			color: #fff;
+		}
+		h1, h2 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		.btn-primary {
+			background: #5603ad;
+			border: none;
+		}
+		.btn-primary:hover {
+			background: #682db7;
+		}
+		.form-control {
+			background: none;
+			border: 2px solid #5603ad;
+			border-radius: 5px;
+			color: #fff;
+			margin-bottom: 20px;
+		}
+		.form-control::placeholder {
+			color: #999;
+		}
+		.form-label {
+			color: #999;
+		}
+		.custom-select {
+			background: none;
+			border: 2px solid #5603ad;
+			color: #fff;
+			border-radius: 5px;
+			-webkit-appearance: none; /* Removes default chrome and safari style */
+			-moz-appearance: none; /* Removes default style Firefox */
+		}
+		/* For the dropdown options */
+		.custom-select option {
+			background: #000000; /* Dark background for the options */
+			color: #fff; /* White text color */
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<header>
+		<h1>Welcome to the Sci-Fi Character Name Generator!</h1>
+		<h2>Choose your character role and generate your unique Sci-Fi character name</h2>
+	</header>
+	<form>
+		<div class="form-group">
+			<label for="firstName" class="form-label">First Name</label>
+			<input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+		</div>
+		<div class="form-group">
+			<label for="lastName" class="form-label">Last Name</label>
+			<input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+		</div>
+		<div class="form-group">
+			<label for="characterRole" class="form-label">Character Role</label>
+			<select class="custom-select" id="characterRole">
+				<option>Starship Captain</option>
+				<option>Galactic Explorer</option>
+				<option>Alien Diplomat</option>
+				<option>Time Traveler</option>
+				<option>Robotics Engineer</option>
+			</select>
+		</div>
+		<button id="button" class="btn btn-primary btn-block">Generate Sci-Fi Name</button>
+	</form>
+</div>
+
+<script>
+	// Add an event listener to the button click
+	document.getElementById("button").onclick = function(event) {
+		// Prevent the default form submission behavior
+		event.preventDefault();
+
+		// Retrieve user inputs from the form
+		var firstName = document.getElementById("firstName").value;
+		var lastName = document.getElementById("lastName").value;
+		var characterRole = document.getElementById("characterRole").value;
+
+		// Validate inputs: ensure both first name and last name are provided
+		if (!firstName || !lastName) {
+			alert("Please fill in both your first name and last name.");
+			return;
+		}
+		
+		// Encode the input data into base64 format for URL passing
+		var input = btoa("<?xml version='1.0' encoding='UTF-8'?><input><firstName>" + firstName + "</firstName><lastName>" + lastName + "</lastName><role>" + characterRole + "</role></input>");
+		// Redirect to the generate.php page with the encoded input as a GET parameter
+		window.location.href = "/generate.php?input=" + encodeURIComponent(input);
+	};
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Message - Jedi Archives</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('{{ url_for('static', filename='space.jpg') }}') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            color: #4bd5ee; /* Light blue for the title to stand out */
+            text-shadow: 2px 2px 4px #000; /* Adding text shadow for better visibility */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label, textarea, .btn {
+            color: #dee2e6;
+        }
+        textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #ffc107;
+            border-color: #ffc107;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #ffdf47;
+            border-color: #ffdf47;
+        }
+        a {
+            color: #ffc107;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+        a:hover {
+            color: #ffdf47;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create a New Message</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="data">Message:</label>
+                <textarea id="data" name="data" rows="4" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn">Create Message</button>
+            <!-- Messages conf needs update soon. Find it at /message_conf -->
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

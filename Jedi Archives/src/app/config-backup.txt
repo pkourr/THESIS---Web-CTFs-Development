@@ -1,0 +1,18 @@
+#####################################
+###### HAProxy Version: 2.2.16  #####
+#####################################
+
+global
+    daemon
+defaults
+    mode    http
+    timeout  client  50000
+    timeout  server  50000
+    timeout  connect 50000
+frontend web
+    bind *:80
+    http-request deny if { path_beg /secret }
+    default_backend websrvs
+backend websrvs
+    http-reuse always
+    server srv1 127.0.0.1:4242 check

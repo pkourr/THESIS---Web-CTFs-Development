@@ -1,0 +1,58 @@
+from flask import Flask, request, redirect, render_template, send_from_directory, current_app, url_for
+import os
+import hmac
+import hashlib
+from uuid import uuid4
+
+
+app = Flask(__name__, template_folder='templates')
+
+def read_flag():
+    try:
+        with open('flag.txt', 'r') as file:
+            return file.read().strip()
+    except FileNotFoundError:
+        return "CTFLIB{ex4mpl3-fl4g}"
+
+FLAG = read_flag()
+messages = [FLAG]
+
+SECRET_KEY = "secret-{uuid4}"
+
+def generate_token(id):
+    return hmac.new(SECRET_KEY.encode(), str(id).encode(), hashlib.sha256).hexdigest()
+
+
+@app.route('/create_message', methods=['GET', 'POST'])
+def create_message():
+    if request.method == 'POST':
+        data = request.form.get('data', 'no data provided.')
+        id = len(messages)
+        messages.append(data)
+        token = generate_token(id)
+        return redirect(f'/message?id={id}&token={token}')
+    return render_template('create_message.html')
+
+@app.route('/message')
+def view_message():
+    id = request.args.get('id', '-1')
+    token = request.args.get('token', '')
+
+    try:
+        id = int(id)
+    except ValueError:
+        return 'Invalid ID format'
+
+    if id < 0 or id >= len(messages):
+        return 'Message not found'
+
+    expected_token = generate_token(id)
+    if token != expected_token:
+        return 'Invalid token'
+
+    message = messages[id]
+    return render_template('view_message.html', message=message)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

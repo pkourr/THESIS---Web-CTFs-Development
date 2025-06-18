@@ -1,0 +1,82 @@
+/* styles.css */
+
+body {
+    background-image: url('../static/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #4a2c0f;
+}
+
+.overlay {
+    background-color: rgba(248, 237, 215, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #3e2605;
+}
+
+p {
+    color: #5e3c1f;
+}
+
+.btn-custom-primary {
+    color: #fff;
+    background-color: #b85c38;
+    border-color: #b85c38;
+}
+
+.btn-custom-primary:hover {
+    background-color: #9e4e2a;
+    border-color: #9e4e2a;
+}
+
+.btn-custom-secondary {
+    color: #4a2c0f;
+    background-color: transparent;
+    border-color: #b85c38;
+}
+
+.btn-custom-secondary:hover {
+    background-color: #b85c38;
+    color: #fff;
+}
+
+.form-control {
+    background-color: rgba(248, 237, 215, 0.8);
+    border: 1px solid #b85c38;
+    color: #4a2c0f;
+}
+
+.form-control::placeholder {
+    color: #5e3c1f;
+}
+
+.form-control:focus {
+    border-color: #9e4e2a;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(184, 92, 56, 0.6);
+}
+
+a {
+    color: #b85c38;
+}
+
+a:hover {
+    color: #9e4e2a;
+}
+
+.invitation-text {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #4a2c0f; /* A dark color for the text to stand out */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    font-family: 'Times New Roman', Times, serif; /* A more traditional font for invitations */
+    font-size: 1.25rem; /* Slightly larger font size for better readability */
+    border: 1px solid #b85c38; /* Border color to match the button */
+}

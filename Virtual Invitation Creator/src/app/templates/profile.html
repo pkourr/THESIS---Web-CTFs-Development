@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VIC - Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <script>
+        function checkSubscription() {
+            var subscribed = "{{ subscribed }}";
+            if (subscribed == 'yes') {
+                location.href = '/create-invitation';
+            } else {
+                alert('You need to be a subscribed member to create your personalized virtual invitations. Please subscribe to enjoy our services.');
+            }
+        }
+        function subscribe() {
+            alert('This functionality is under maintenance');
+        }
+    </script>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="overlay p-4">
+        <h1>Welcome to Your VIC Profile</h1>
+        <p class="lead mt-3">
+            Here at VIC, we're dedicated to providing you with the best tools to create stunning virtual invitations for any occasion. Personalize your invites with ease and make every event unique!
+        </p>
+        <p class="text-center mt-2">
+            To access all of our premium features and start creating your custom invitations, please subscribe to our service. Subscribed members can enjoy a wide range of exclusive templates and designs.
+        </p>
+        <div class="d-flex flex-column align-items-center mt-4">
+            <button onclick="subscribe()" class="btn btn-custom-primary mb-3">Subscribe Now</button>
+            <button onclick="checkSubscription()" type="button" class="btn btn-custom-secondary mb-3">Create Invitation</button>
+            <button onclick="location.href='/logout'" type="button" class="btn btn-custom-secondary">Logout</button>
+        </div>
+        <p id="message" class="mt-3"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success - NoCrypt Keys</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/nocrypt.jpg'); /* Updated relative path */
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .success-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            color: #5a2d0c; /* Dark brown color for the text */
+        }
+        .flag {
+            color: #d88c47; /* A shade that matches the warm hues in the background */
+            font-weight: bold;
+            display: inline-block; /* Helps with overflow handling */
+            max-width: 100%;
+            overflow-wrap: break-word; /* Ensures the flag doesn't overflow the container */
+        }
+    </style>
+</head>
+<body>
+   <div class="success-container text-center">
+        <h1>Congratulations!</h1>
+        <p>You have successfully navigated NoCrypt.</p>
+        <p>Your flag is: <span class="flag">{{ flag }}</span></p>
+    </div>
+</body>
+</html>

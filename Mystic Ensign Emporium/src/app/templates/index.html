@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mystic Ensign Emporium</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Using the provided image as the background */
+        body {
+            background: url("{{ url_for('static', filename='background.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Styling to enhance readability and aesthetics with a color scheme that matches the background */
+        .container {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay to make the text stand out */
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+        }
+
+        /* Title styling with colors complementing the background */
+        .title {
+            color: #ffd700; /* Gold color to match the yellow tones in the background */
+            font-weight: bold;
+            text-shadow: 1px 1px 8px #000; /* Shadow for better legibility */
+        }
+
+        /* List group item button styles for better contrast and aesthetics */
+        .flag-button {
+            background-color: #0056b3; /* A shade of blue to match the background tones */
+            color: #ffffff; /* White text for contrast */
+            border: none;
+            transition: background-color 0.3s; /* Transition for a smooth hover effect */
+        }
+        .flag-button:hover {
+            background-color: #ffd700; /* Hover color to match the yellow tones */
+        }
+
+        /* 'In stock' and 'Out of stock' tag styles for clarity and design */
+        .list-group-item small {
+            background: #333333; /* Dark background for the tags */
+            color: #ffffff; /* White text for readability */
+            padding: 3px 6px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center title">Mystic Ensign Emporium</h1>
+        <div class="list-group mt-4">
+            {% for flag in flags %}
+            <a href="{{ url_for('flag_description', flag_id=flag.id, in_stock=flag.in_stock) }}" class="list-group-item list-group-item-action flex-column align-items-start flag-button">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ flag.name }}</h5>
+                    <small>{{ 'In stock' if flag.in_stock else 'Out of stock' }}</small>
+                </div>
+                <small>Click to view details</small>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
